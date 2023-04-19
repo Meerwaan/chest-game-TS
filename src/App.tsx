@@ -5,6 +5,8 @@ import Connexion from './View/connexion/connexion';
 import Accueil from './View/acceuil/accueil';
 import ChessFront from './View/chessFront/chessFront';
 
+import { Chess } from 'chess.js'
+
 function App() {
   return (
     <Router>

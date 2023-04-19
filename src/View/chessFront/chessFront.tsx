@@ -6,6 +6,7 @@ import "chessground/assets/chessground.cburnett.css";
 
 
 
+
 function ChessFront() {
   const options = {
     // options de configuration
