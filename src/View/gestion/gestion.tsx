@@ -16,50 +16,59 @@ function ListWithButton() {
   };
 
   return (
-    <div className="Main">
-      <div className="containerTitle">
-        <p className="left-p">Pseudo du joueur connecté</p>
-        <p className="right-p">Nombre de pièces</p>
+    <div className="main">
+      <div className="title-container">
+        <h2 className="title">Bienvenue, Pseudo du joueur connecté</h2>
+        <p className="coins">Nombre de pièces : 10</p>
       </div>
-      <div className="containerFriend">
-        <ul className="list">
-        {list2.map((item, index) => (
-            <li key={index}>
-              {item}  <button className="buttonDefi" >
-          Defier un ami
-        </button>
+      <div className="friends-container">
+        <h3 className="subtitle">Amis</h3>
+        <ul className="friends-list">
+          {list2.map((item, index) => (
+            <li key={index} className="friend-item">
+              {item}
+              <button className="defy-button">Défier</button>
             </li>
           ))}
         </ul>
-        <button className="button" onClick={handleAddFriend}>Ajouter un ami</button>
+        <form className="add-friend-form" onSubmit={(e) => e.preventDefault()}>
+          <input
+            type="text"
+            placeholder="Ajouter un ami"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            className="add-friend-input"
+          />
+          <button className="add-friend-button" onClick={handleAddFriend}>
+            Ajouter
+          </button>
+        </form>
       </div>
-      <div className="containerPartie">
-        <select name="pets" id="pet-select">
-          <option value="">--Please choose an option--</option>
-          <option value="dog">Dog</option>
-          <option value="cat">Cat</option>
-          <option value="hamster">Hamster</option>
-          <option value="parrot">Parrot</option>
-          <option value="spider">Spider</option>
-          <option value="goldfish">Goldfish</option>
-        </select>
-        <select name="pets" id="pet-select">
-          <option value="">--Please choose an option--</option>
-          <option value="dog">Dog</option>
-          <option value="cat">Cat</option>
-          <option value="hamster">Hamster</option>
-          <option value="parrot">Parrot</option>
-          <option value="spider">Spider</option>
-          <option value="goldfish">Goldfish</option>
-        </select>
-        <button className="button" onClick={handleAddItem}>
-          Créer une nouvelle partie
-        </button>
-        <h3>Liste des parties disponibles</h3>
-        <ul className="list">
+      <div className="games-container">
+        <h3 className="subtitle">Parties</h3>
+        <form className="create-game-form" onSubmit={(e) => e.preventDefault()}>
+          <select className="select-game">
+            <option value="">--Choisir un jeu--</option>
+            <option value="tic-tac-toe">Tic Tac Toe</option>
+            <option value="connect-four">Puissance 4</option>
+            <option value="chess">Echecs</option>
+          </select>
+          <select className="select-difficulty">
+            <option value="">--Choisir la difficulté--</option>
+            <option value="easy">Facile</option>
+            <option value="medium">Moyenne</option>
+            <option value="hard">Difficile</option>
+          </select>
+          <button className="create-game-button" onClick={handleAddItem}>
+            Créer une partie
+          </button>
+        </form>
+        <ul className="games-list">
           {list.map((item, index) => (
-            <li key={index}>
-              {item} Nombre de joueur : 1/2
+            <li key={index} className="game-item">
+              {item}
+              <span className="players-count">1/2</span>
+              <button className="join-game-button">Rejoindre</button>
             </li>
           ))}
         </ul>
