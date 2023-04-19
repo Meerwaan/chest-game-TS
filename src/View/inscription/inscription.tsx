@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./inscription.css";
+import { addUser } from "../../api/api";
 
 function Inscription() {
   const [nom, setNom] = useState("");
@@ -8,7 +9,7 @@ function Inscription() {
 
   const soumettreFormulaire = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
-    // ici, vous pouvez ajouter votre logique pour soumettre le formulaire
+    addUser(nom, email, motDePasse)
   }
 
   return (
