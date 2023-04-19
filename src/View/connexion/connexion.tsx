@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import './connexion.css';
+import React, { useState } from"react";
+import"./connexion.css";
 
 function Connexion() {
-  const [email, setEmail] = useState('');
-  const [motDePasse, setMotDePasse] = useState('');
+  const [email, setEmail] = useState("");
+  const [motDePasse, setMotDePasse] = useState("");
 
   const soumettreFormulaire = (e: { preventDefault: () => void; }) => {
     e.preventDefault();

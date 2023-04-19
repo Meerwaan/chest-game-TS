@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import './inscription.css';
+import React, { useState } from "react";
+import "./inscription.css";
 
 function Inscription() {
-  const [nom, setNom] = useState('');
-  const [email, setEmail] = useState('');
-  const [motDePasse, setMotDePasse] = useState('');
+  const [nom, setNom] = useState("");
+  const [email, setEmail] = useState("");
+  const [motDePasse, setMotDePasse] = useState("");
 
   const soumettreFormulaire = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
@@ -27,7 +27,7 @@ function Inscription() {
           Mot de passe :
           <input type="password" value={motDePasse} onChange={e => setMotDePasse(e.target.value)} />
         </label>
-        <button type="submit">S'inscrire</button>
+        <button type="submit">S&ldquo;inscrire</button>
       </form>
     </div>
   );

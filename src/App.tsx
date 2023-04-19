@@ -1,11 +1,11 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Inscription from './View/inscription/inscription';
-import Connexion from './View/connexion/connexion';
-import Accueil from './View/acceuil/accueil';
-import ChessFront from './View/chessFront/chessFront';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Inscription from "./View/inscription/inscription";
+import Connexion from "./View/connexion/connexion";
+import Accueil from "./View/acceuil/accueil";
+import ChessFront from "./View/chessFront/chessFront";
 
-import { Chess } from 'chess.js'
+import { Chess } from "chess.js"
 
 function App() {
   return (
