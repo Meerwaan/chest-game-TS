@@ -7,6 +7,7 @@ import ChessFront from "./View/chessFront/chessFront";
 import testapi from "./View/testapi/testapi";
 import { Chess } from "chess.js"
 import Apitest from "./View/testapi/testapi";
+import Gestion from "./View/gestion/gestion"
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/connexion" Component={Connexion} />
           <Route path="/inscription" Component={Inscription} />
           <Route path="/" Component={Accueil} />
+          <Route path="/gestion" Component={Gestion} />
           <Route path="/chess" Component={ChessFront} />
           <Route path="/data" Component={testapi} />
         </Routes>
