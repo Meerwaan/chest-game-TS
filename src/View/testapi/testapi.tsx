@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { fetchData } from "../../api/api";
 
 function Apitest() {
-  const [data, setData] = useState();
+  const [data, setData] = useState<string>();
+
 
   useEffect(() => {
     fetchData()
