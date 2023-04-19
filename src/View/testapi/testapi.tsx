@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { fetchData } from '../../api/api';
 
-function App() {
+function Apitest() {
   const [data, setData] = useState();
 
   useEffect(() => {
@@ -21,4 +21,4 @@ function App() {
   );
 }
 
-export default App;
+export default Apitest;

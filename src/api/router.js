@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Accueil from './Accueil';
 import Connexion from './Connexion';
 import Inscription from './Inscription';
-import testapi from './testapi';
+
+import Apitest from './testapi';
 
 function Routes() {
   return (
@@ -12,7 +13,7 @@ function Routes() {
         <Route exact path='/' component={Accueil} />
         <Route exact path='/connexion' component={Connexion} />
         <Route exact path='/inscription' component={Inscription} />
-        <Route path='/data' component={testapi} />
+        <Route path='/data' component={Apitest} />
       </Switch>
     </Router>
   );
