@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import "./inscription.css";
-<<<<<<< HEAD
-import { addUser } from "../../api/api";
-=======
 import axios from "axios";
->>>>>>> 7232730 (fix)
 
 function Inscription() {
   const [nom, setNom] = useState("");
@@ -13,13 +9,8 @@ function Inscription() {
 
   const soumettreFormulaire = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-<<<<<<< HEAD
-    addUser(nom, email, motDePasse)
-  }
-=======
     // ici, vous pouvez ajouter votre logique pour soumettre le formulaire
   };
->>>>>>> 7232730 (fix)
 
   return (
     <div className="container">
