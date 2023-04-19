@@ -11,6 +11,7 @@ import React from "react";
 function ChessFront() {
   const options = {
     // options de configuration
+    
   };
   const game = new Chess(); 
 

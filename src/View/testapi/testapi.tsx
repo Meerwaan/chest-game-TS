@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { fetchData } from '../../api/api';
+import React, { useEffect, useState } from "react";
+import { fetchData } from "../../api/api";
 
 function Apitest() {
   const [data, setData] = useState();
