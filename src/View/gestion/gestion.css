@@ -102,16 +102,14 @@ button {
   }
   
   /* Style du compteur de joueurs */
-  .players-count {
-    font-size: 16px;
-    margin-left: 16px;
-  }
+
   
   .title-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
+
   .title {
     margin: 0;
   }
@@ -124,4 +122,51 @@ button {
     margin-right: auto;
     width: 50vw;
     height: 50vh;
+  }
+  .games-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .game-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  
+  .game-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .game-title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .game-players {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .game-price {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .join-button {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .join-button:hover {
+    background-color: #3e8e41;
   }
