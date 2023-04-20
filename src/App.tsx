@@ -3,9 +3,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Inscription from "./View/inscription/inscription";
 import Connexion from "./View/connexion/connexion";
 import Accueil from "./View/acceuil/accueil";
-import ChessFront from "./View/chessFront/chessFront";
+import ChessBoard from "./View/chessgameboard/chessboard";
 import testapi from "./View/testapi/testapi";
-import { Chess } from "chess.js";
 import Apitest from "./View/testapi/testapi";
 import Gestion from "./View/gestion/gestion";
 import ForgetPassword from "./View/ForgetPassword/forgetPassword";
@@ -21,7 +20,7 @@ function App() {
           <Route path="/forget" Component={ForgetPassword} />
           <Route path="/" Component={Accueil} />
           <Route path="/gestion" Component={Gestion} />
-          <Route path="/chess" Component={ChessFront} />
+          <Route path="/chessboard" Component={ChessBoard} />
           <Route path="/data" Component={testapi} />
           <Route path="/password/:id" Component={ResetPasswordPage} />
         </Routes>

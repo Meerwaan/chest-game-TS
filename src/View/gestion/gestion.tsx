@@ -1,7 +1,16 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import "./gestion.css";
 
 function ListWithButton() {
+
+    const navigate = useNavigate();
+
+    const redirectToChessGameBoard = () => {
+        navigate("/chessboard");
+    };
+
     const [list, setList] = useState([
         { name: "pseudo", players: "1/2", price: "0" },
     ]);
@@ -122,7 +131,7 @@ function ListWithButton() {
                                 <span className="game-players">nombre de joueur : {item.players}</span>
                                 <span className="game-price">Prix de la partie : {item.price === "0" ? "Gratuit" : item.price}</span>
                             </div>
-                            <button className="join-button">Rejoindre</button>
+                            <button className="join-button" onClick={redirectToChessGameBoard}>Rejoindre</button>
                         </li>
                     ))}
                 </ul>
