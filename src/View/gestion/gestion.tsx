@@ -11,7 +11,7 @@ function ListWithButton() {
     setInputValue("");
   };
   const handleAddFriend = () => {
-    setList2([...list, inputValue]);
+    setList2([...list2, inputValue]);
     setInputValue("");
   };
 
