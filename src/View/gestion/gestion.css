@@ -88,6 +88,9 @@ button {
     list-style: none;
     padding: 0;
     margin: 0;
+    overflow: auto;
+    max-height: 40vh;
+    width: 53vw;
   }
   
   /* Style des éléments de liste */
@@ -103,7 +106,9 @@ button {
   
   /* Style du compteur de joueurs */
 
-  
+  .games-container {
+    margin-top: 3vh;
+  }
   .title-container {
     display: flex;
     justify-content: space-between;
@@ -127,6 +132,7 @@ button {
     list-style: none;
     padding: 0;
     margin: 0;
+    overflow-x: auto;
   }
   
   .game-item {

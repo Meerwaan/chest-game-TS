@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import "./gestion.css";
 
 function ListWithButton() {
@@ -22,18 +21,20 @@ function ListWithButton() {
     const nom = localStorage.getItem("nom")
     const handleAddItem = () => {
         let name
-       if(nom){
-        name = nom
-       }else{
-        name = "Error name ot found"
-       }
+        if (nom) {
+            name = nom
+        } else {
+            name = "Error name ot found"
+        }
         setList([...list, { name: name, players: "1/2", price: newPrice }]);
-        setInputValue("");
     };
 
     const handleAddFriend = () => {
-        setList2([...list2, inputValue]);
-        setInputValue("");
+
+        if (inputValue) {
+            setList2([...list2, inputValue]);
+            setInputValue("");
+        }
     };
 
     const handlePriceFilter = (e: { target: { value: React.SetStateAction<string>; }; }) => {
@@ -42,24 +43,24 @@ function ListWithButton() {
 
     const handlePriceSort = (e: { target: { value: React.SetStateAction<string>; }; }) => {
         setSortPrice(e.target.value);
-      };
-      
-      const sortList = (list: any[]) => {
+    };
+
+    const sortList = (list: any[]) => {
         if (sortPrice === "more") {
-          return list.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+            return list.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
         } else if (sortPrice === "less") {
-          return list.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+            return list.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
         } else {
-          return list;
+            return list;
         }
-      };
-      
-      const filteredList =
+    };
+
+    const filteredList =
         selectedPrice === "Gratuit"
-          ? list.filter((item) => item.price === "0")
-          : selectedPrice === "Payant"
-          ? list.filter((item) => item.price !== "0")
-          : list;
+            ? list.filter((item) => item.price === "0")
+            : selectedPrice === "Payant"
+                ? list.filter((item) => item.price !== "0")
+                : list;
 
     return (
         <div className="main">
@@ -73,7 +74,23 @@ function ListWithButton() {
                     {list2.map((item, index) => (
                         <li key={index} className="friend-item">
                             {item}
-                            <button className="defy-button">Défier</button>
+                            <div>
+                                <button
+                                    className="defy-button"
+                                >
+                                    Defier
+                                </button>
+                                <button
+                                    className="defy-button"
+                                    onClick={() => {
+                                        const newList = [...list2];
+                                        newList.splice(index, 1);
+                                        setList2(newList);
+                                    }}
+                                >
+                                    Supprimer
+                                </button>
+                            </div>
                         </li>
                     ))}
                 </ul>
@@ -124,7 +141,7 @@ function ListWithButton() {
                     </select>
                 </form>
                 <ul className="games-list">
-                   {sortList(filteredList).map((item, index) => (
+                    {sortList(filteredList).map((item, index) => (
                         <li key={index} className="game-item">
                             <div className="game-info">
                                 <span className="game-title">{item.name}</span>
