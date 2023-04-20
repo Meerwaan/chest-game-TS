@@ -4,7 +4,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 const ResetPasswordPage: React.FC = (props) => {
-  const { id } = useParams();
+  const { email } = useParams();
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
@@ -21,9 +21,10 @@ const ResetPasswordPage: React.FC = (props) => {
 
     try {
       const response = await axios.post(
-        `http://localhost:3000/reset-password/`,
+        `http://localhost:3000/resetPassword/`,
         {
           password,
+          email,
         }
       );
 

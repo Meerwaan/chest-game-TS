@@ -22,7 +22,7 @@ function App() {
           <Route path="/gestion" Component={Gestion} />
           <Route path="/chessboard" Component={ChessBoard} />
           <Route path="/data" Component={testapi} />
-          <Route path="/password/:id" Component={ResetPasswordPage} />
+          <Route path="/password/:email" Component={ResetPasswordPage} />
         </Routes>
       </div>
     </Router>
