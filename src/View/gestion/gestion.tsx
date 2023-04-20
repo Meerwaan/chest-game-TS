@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./gestion.css";
+import axios from "axios";
 
 function ListWithButton() {
 
@@ -19,6 +20,7 @@ function ListWithButton() {
     const [sortPrice, setSortPrice] = useState("");
     const [newPrice, setNewPrice] = useState("0");
     const nom = localStorage.getItem("nom")
+    const id = localStorage.getItem("id")
     const handleAddItem = () => {
         let name
         if (nom) {
@@ -30,11 +32,23 @@ function ListWithButton() {
     };
 
     const handleAddFriend = () => {
-
-        if (inputValue) {
-            setList2([...list2, inputValue]);
-            setInputValue("");
-        }
+        axios
+            .post("http://localhost:3000/addfriend", {
+                nom: inputValue,
+                id: id,
+            })
+            .then((res) => {
+                if (res.status === 200) {
+                    if (inputValue) {
+                        setList2([...list2, inputValue]);
+                        setInputValue("");
+                    }
+                }
+            })
+            .catch((err) => {
+                alert("Erreur lors de la flop");
+                console.log(err);
+            });
     };
 
     const handlePriceFilter = (e: { target: { value: React.SetStateAction<string>; }; }) => {

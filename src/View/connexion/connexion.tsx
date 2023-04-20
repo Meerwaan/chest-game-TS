@@ -48,7 +48,7 @@ function Connexion() {
                       "email",
                       res.data.email || "pas connecté"
                     );
-                    localStorage.setItem("id", res.data.id);
+                    localStorage.setItem("id", res.data._id);
                     window.location.href = "/gestion";
                   } else {
                     alert("Erreur lors de la connexion");
