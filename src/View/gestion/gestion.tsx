@@ -23,6 +23,7 @@ function ListWithButton() {
     const [newPrice, setNewPrice] = useState("0");
     const nom = localStorage.getItem("nom");
     const id = localStorage.getItem("id");
+    const proprietaire = nom;
     const handleAddItem = () => {
         let name;
         if (nom) {
@@ -49,7 +50,7 @@ function ListWithButton() {
                 alert("Erreur lors de la flop");
                 console.log(err);
             });
-    },[]);
+    }, []);
 
 
 
@@ -74,6 +75,32 @@ function ListWithButton() {
             });
 
     };
+
+    const handleDeleteFriend = (friends: string) => {
+        axios
+            .delete("http://localhost:3000/delfriends", {
+                params: {
+                    nom: friends,
+                    proprietaire: nom,
+                },
+            })
+
+            .then((response) => {
+                // Traitement en cas de succès de la suppression de l'ami
+                console.log("Ami supprimé.");
+                console.log(id);
+                console.log(id);
+            })
+            .catch((error) => {
+                // Traitement en cas d'erreur de la suppression de l'ami
+                console.error(inputValue);
+                console.error(proprietaire);
+            });
+    };
+
+
+
+
 
     const handlePriceFilter = (e: {
         target: { value: React.SetStateAction<string> };
@@ -120,11 +147,7 @@ function ListWithButton() {
                                 <button className="defy-button">Defier</button>
                                 <button
                                     className="defy-button"
-                                    onClick={() => {
-                                        const newList = [...list2];
-                                        newList.splice(index, 1);
-                                        setList2(newList);
-                                    }}
+                                    onClick={()=>handleDeleteFriend(item)}
                                 >
                                     Supprimer
                                 </button>
