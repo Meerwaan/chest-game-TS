@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
 import { useNavigate } from "react-router-dom";
 import "./gestion.css";
 import axios from "axios";
@@ -206,7 +207,3 @@ function ListWithButton() {
 }
 
 export default ListWithButton;
-function useEffect(arg0: () => void) {
-    throw new Error("Function not implemented.");
-}
-
