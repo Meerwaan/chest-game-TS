@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./connexion.css";
 import axios from "axios";
-import { redirect, Navigate } from "react-router-dom";
+import { redirect, Navigate, Link } from "react-router-dom";
 
 function Connexion() {
   const [email, setEmail] = useState("");
@@ -43,9 +43,13 @@ function Connexion() {
                   if (res.status === 200) {
                     alert("Connexion réussie");
 
-                    localStorage.setItem("user", res.data);
-                    console.log(res.data);
-                    window.location.replace("/gestion");
+                    localStorage.setItem("nom", res.data.nom || "pas connecté");
+                    localStorage.setItem(
+                      "email",
+                      res.data.email || "pas connecté"
+                    );
+                    localStorage.setItem("id", res.data.id);
+                    window.location.href = "/gestion";
                   } else {
                     alert("Erreur lors de la connexion");
                   }
@@ -60,6 +64,9 @@ function Connexion() {
           Se connecter
         </button>
       </form>
+      <Link to="/forget">
+        <button>Mot de passe oublié ?</button>
+      </Link>
     </div>
   );
 }

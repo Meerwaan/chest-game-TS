@@ -5,9 +5,10 @@ import Connexion from "./View/connexion/connexion";
 import Accueil from "./View/acceuil/accueil";
 import ChessFront from "./View/chessFront/chessFront";
 import testapi from "./View/testapi/testapi";
-import { Chess } from "chess.js"
+import { Chess } from "chess.js";
 import Apitest from "./View/testapi/testapi";
-import Gestion from "./View/gestion/gestion"
+import Gestion from "./View/gestion/gestion";
+import ForgetPassword from "./View/ForgetPassword/forgetPassword";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/connexion" Component={Connexion} />
           <Route path="/inscription" Component={Inscription} />
+          <Route path="/forget" Component={ForgetPassword} />
           <Route path="/" Component={Accueil} />
           <Route path="/gestion" Component={Gestion} />
           <Route path="/chess" Component={ChessFront} />
