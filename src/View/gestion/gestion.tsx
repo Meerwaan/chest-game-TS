@@ -3,24 +3,22 @@ import "./gestion.css";
 
 function ListWithButton() {
     const [list, setList] = useState([
-        { name: "pseudo", players: "1/2", price: "Gratuit" },
-        { name: "pas", players: "2/2", price: "100" },
-        { name: "ouf", players: "1/2", price: "Gratuit" },
+        { name: "pseudo", players: "1/2", price: "0" },
     ]);
     const [list2, setList2] = useState(["pseudo", "pas", "ouf"]);
     const [inputValue, setInputValue] = useState("");
     const [selectedPrice, setSelectedPrice] = useState("");
+    const [sortPrice, setSortPrice] = useState("");
     const [newPrice, setNewPrice] = useState("0");
+    const nom = localStorage.getItem("nom")
     const handleAddItem = () => {
-        let valuePrice
-        console.log(newPrice)
-        if(newPrice == "0"){
-
-            valuePrice = "Gratuit"
-        }else {
-            valuePrice = newPrice
-        }
-        setList([...list, { name: "", players: "1/2", price: valuePrice }]);
+        let name
+       if(nom){
+        name = nom
+       }else{
+        name = "Error name ot found"
+       }
+        setList([...list, { name: name, players: "1/2", price: newPrice }]);
         setInputValue("");
     };
 
@@ -33,17 +31,31 @@ function ListWithButton() {
         setSelectedPrice(e.target.value);
     };
 
-    const filteredList =
+    const handlePriceSort = (e: { target: { value: React.SetStateAction<string>; }; }) => {
+        setSortPrice(e.target.value);
+      };
+      
+      const sortList = (list: any[]) => {
+        if (sortPrice === "more") {
+          return list.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+        } else if (sortPrice === "less") {
+          return list.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+        } else {
+          return list;
+        }
+      };
+      
+      const filteredList =
         selectedPrice === "Gratuit"
-            ? list.filter((item) => item.price === "Gratuit")
-            : selectedPrice === "Payant"
-                ? list.filter((item) => item.price !== "Gratuit")
-                : list;
+          ? list.filter((item) => item.price === "0")
+          : selectedPrice === "Payant"
+          ? list.filter((item) => item.price !== "0")
+          : list;
 
     return (
         <div className="main">
             <div className="title-container">
-                <h2 className="title">Bienvenue, Pseudo du joueur connecté</h2>
+                <h2 className="title">Bienvenue, {nom}</h2>
                 <p className="coins">Nombre de pièces : 10</p>
             </div>
             <div className="friends-container">
@@ -60,7 +72,7 @@ function ListWithButton() {
                     <input
                         type="text"
                         placeholder="Ajouter un ami"
-                        value={inputValue }
+                        value={inputValue}
                         onChange={(e) => setInputValue(e.target.value)}
                         className="add-friend-input"
                     />
@@ -70,18 +82,23 @@ function ListWithButton() {
                 </form>
             </div>
             <div className="games-container">
-                <h3 className="subtitle">Parties</h3>
+                <h2 className="subtitle">Parties</h2>
                 <form className="create-game-form" onSubmit={(e) => e.preventDefault()}>
-                    
+                    <div>
+                        <h4 >Création d&apos;une partie :</h4>
+
+                        <span>Choisissez votre mise de la partie : (0 = participation Gratuite)</span>
+                    </div>
+
                     <input
                         type="number"
-                        min="0" 
+                        min="0"
                         max="200"
                         step="10"
                         placeholder="Mise de la partie"
-                        value= {newPrice}
+                        value={newPrice}
                         onChange={(e) => setNewPrice(e.target.value)}
-                        
+
                     />
                     <button className="create-game-button" onClick={handleAddItem}>
                         Ajouter une partie
@@ -91,14 +108,19 @@ function ListWithButton() {
                         <option value="Gratuit">Gratuit</option>
                         <option value="Payant">Payant</option>
                     </select>
+                    <select className="select" onChange={handlePriceSort}>
+                        <option value="">--Trie par somme--</option>
+                        <option value="more">Croissant</option>
+                        <option value="less">Décroissant</option>
+                    </select>
                 </form>
                 <ul className="games-list">
-                    {filteredList.map((item, index) => (
+                   {sortList(filteredList).map((item, index) => (
                         <li key={index} className="game-item">
                             <div className="game-info">
                                 <span className="game-title">{item.name}</span>
                                 <span className="game-players">nombre de joueur : {item.players}</span>
-                                <span className="game-price">Prix de la partie : {item.price}</span>
+                                <span className="game-price">Prix de la partie : {item.price === "0" ? "Gratuit" : item.price}</span>
                             </div>
                             <button className="join-button">Rejoindre</button>
                         </li>
