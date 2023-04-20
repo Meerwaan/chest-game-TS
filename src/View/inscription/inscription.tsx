@@ -46,7 +46,7 @@ function Inscription() {
             if (nom === "" || email === "" || motDePasse === "") {
               alert("Veuillez remplir tous les champs");
             } else {
-              axios.post("http://localhost:8000/adduser", {
+              axios.post("http://localhost:3000/adduser", {
                 nom: nom,
                 email: email,
                 motDePasse: motDePasse,
