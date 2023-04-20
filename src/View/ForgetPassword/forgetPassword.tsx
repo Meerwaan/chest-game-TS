@@ -50,7 +50,7 @@ function ForgetPassword() {
                       if (res.status === 200) {
                         alert("Email envoyé");
                       } else {
-                        alert("Erreur lors de l'envoi de l'email");
+                        alert("Erreur non gérée");
                       }
                     })
                     .catch((err) => {

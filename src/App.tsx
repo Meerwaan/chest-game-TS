@@ -9,6 +9,7 @@ import { Chess } from "chess.js";
 import Apitest from "./View/testapi/testapi";
 import Gestion from "./View/gestion/gestion";
 import ForgetPassword from "./View/ForgetPassword/forgetPassword";
+import ResetPasswordPage from "./View/ForgetPassword/password";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/gestion" Component={Gestion} />
           <Route path="/chess" Component={ChessFront} />
           <Route path="/data" Component={testapi} />
+          <Route path="/password/:id" Component={ResetPasswordPage} />
         </Routes>
       </div>
     </Router>
