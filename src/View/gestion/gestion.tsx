@@ -19,6 +19,8 @@ function ListWithButton() {
     const [list2, setList2] = useState([]);
     const [inputValue, setInputValue] = useState("");
     const [selectedPrice, setSelectedPrice] = useState("");
+    const [gameInputValue, setGameInputValue] = useState("");
+    const [list3, setList3] = useState<{ name: string; players: string; price: string }[]>([]);
     const [sortPrice, setSortPrice] = useState("");
     const [newPrice, setNewPrice] = useState("0");
     const nom = localStorage.getItem("nom");
@@ -27,11 +29,22 @@ function ListWithButton() {
     const handleAddItem = () => {
         let name;
         if (nom) {
-            name = nom;
+            name = gameInputValue;
         } else {
             name = "Error name ot found";
         }
         setList([...list, { name: name, players: "1/2", price: newPrice }]);
+        axios.post("http://localhost:3000/addgame", {
+            nom: nom,
+            gameName: name,
+            gamePrice: newPrice
+        })
+            .then((res) => {
+                console.log(res.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     };
 
     useEffect(() => {
@@ -50,6 +63,25 @@ function ListWithButton() {
                 alert("Erreur lors de la flop");
                 console.log(err);
             });
+    }, []);
+
+    useEffect(() => {
+        axios
+            .get("http://localhost:3000/games", {
+                params: {
+                    nom: nom,
+                },
+            })
+            .then((res) => {
+                if (res.status === 200) {
+                    setList3(res.data);
+                }
+            })
+            .catch((err) => {
+                alert("Erreur lors de la flop");
+                console.log(err);
+            });
+
     }, []);
 
 
@@ -86,15 +118,13 @@ function ListWithButton() {
             })
 
             .then((response) => {
-                // Traitement en cas de succès de la suppression de l'ami
+
                 console.log("Ami supprimé.");
-                console.log(id);
-                console.log(id);
+
             })
             .catch((error) => {
-                // Traitement en cas d'erreur de la suppression de l'ami
-                console.error(inputValue);
-                console.error(proprietaire);
+
+                console.log("Erreur lors de la suppression de l'ami.");
             });
     };
 
@@ -112,6 +142,12 @@ function ListWithButton() {
         target: { value: React.SetStateAction<string> };
     }) => {
         setSortPrice(e.target.value);
+    };
+
+    const handleNamegame = (e: {
+        target: { value: React.SetStateAction<string> };
+    }) => {
+        setGameInputValue(e.target.value);
     };
 
     const sortList = (list: any[]) => {
@@ -147,7 +183,7 @@ function ListWithButton() {
                                 <button className="defy-button">Defier</button>
                                 <button
                                     className="defy-button"
-                                    onClick={()=>handleDeleteFriend(item)}
+                                    onClick={() => handleDeleteFriend(item)}
                                 >
                                     Supprimer
                                 </button>
@@ -173,6 +209,20 @@ function ListWithButton() {
                 <form className="create-game-form" onSubmit={(e) => e.preventDefault()}>
                     <div>
                         <h4>Création d&apos;une partie :</h4>
+
+                        <span>
+                            Choisissez le nom de votre partie :
+                        </span>
+
+                        <input
+                            type="text"
+                            placeholder="Nom de la partie"
+                            value={gameInputValue}
+                            onChange={(e) => setGameInputValue(e.target.value)}
+
+
+                        />
+
 
                         <span>
                             Choisissez votre mise de la partie : (0 = participation Gratuite)
@@ -203,7 +253,7 @@ function ListWithButton() {
                     </select>
                 </form>
                 <ul className="games-list">
-                    {sortList(filteredList).map((item, index) => (
+                    {list3.length > 0 && list3.map((item: any, index: number) => (
                         <li key={index} className="game-item">
                             <div className="game-info">
                                 <span className="game-title">{item.name}</span>
@@ -224,6 +274,9 @@ function ListWithButton() {
                         </li>
                     ))}
                 </ul>
+
+
+
             </div>
         </div>
     );
