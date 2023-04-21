@@ -161,10 +161,10 @@ function ListWithButton() {
 
     const filteredList =
         selectedPrice === "Gratuit"
-            ? list.filter((item) => item.price === "0")
+            ? list3.filter((item) => item.price === "0")
             : selectedPrice === "Payant"
-                ? list.filter((item) => item.price !== "0")
-                : list;
+                ? list3.filter((item) => item.price !== "0")
+                : list3;
 
     return (
         <div className="main">
@@ -237,7 +237,7 @@ function ListWithButton() {
                         value={newPrice}
                         onChange={(e) => setNewPrice(e.target.value)}
                     />
-                    <button className="create-game-button" onClick={handleAddItem}>
+                    <button className="create-game-button" onClick={()=>{handleAddItem(); redirectToChessGameBoard();}}>
                         Ajouter une partie
                     </button>
                     <select className="select" onChange={handlePriceFilter}>
@@ -252,7 +252,7 @@ function ListWithButton() {
                     </select>
                 </form>
                 <ul className="games-list">
-                    {list3.length > 0 && list3.map((item: any, index: number) => (
+                    {sortList(filteredList).length > 0 && sortList(filteredList).map((item: any, index: number) => (
                         <li key={index} className="game-item">
                             <div className="game-info">
                                 <span className="game-title">{item.gameName}</span>
