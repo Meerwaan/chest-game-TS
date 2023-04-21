@@ -20,7 +20,7 @@ function ListWithButton() {
     const [inputValue, setInputValue] = useState("");
     const [selectedPrice, setSelectedPrice] = useState("");
     const [gameInputValue, setGameInputValue] = useState("");
-    const [list3, setList3] = useState<{ name: string; players: string; price: string }[]>([]);
+    const [list3, setList3] = useState<{ gameName: string; owner: string; price: string }[]>([]);
     const [sortPrice, setSortPrice] = useState("");
     const [newPrice, setNewPrice] = useState("0");
     const nom = localStorage.getItem("nom");
@@ -67,13 +67,12 @@ function ListWithButton() {
 
     useEffect(() => {
         axios
-            .get("http://localhost:3000/games", {
-                params: {
-                    nom: nom,
-                },
+            .get("http://localhost:3000/game", {
+                
             })
             .then((res) => {
                 if (res.status === 200) {
+                    console.log(res.data)
                     setList3(res.data);
                 }
             })
@@ -256,9 +255,9 @@ function ListWithButton() {
                     {list3.length > 0 && list3.map((item: any, index: number) => (
                         <li key={index} className="game-item">
                             <div className="game-info">
-                                <span className="game-title">{item.name}</span>
+                                <span className="game-title">{item.gameName}</span>
                                 <span className="game-players">
-                                    nombre de joueur : {item.players}
+                                    nombre de joueur : {item.owner}
                                 </span>
                                 <span className="game-price">
                                     Prix de la partie :{" "}
