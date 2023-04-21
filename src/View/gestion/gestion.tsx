@@ -178,6 +178,10 @@ function ListWithButton() {
         .catch((err) => {
           //console.log(err);
         });
+      localStorage.setItem(
+        "coins",
+        (parseInt(coins!) - priceNumber).toString()
+      );
       redirectToChessGameBoard(gameName);
     } else {
       alert("Vous ne pouvez pas rejoindre votre propore partie");
