@@ -50,6 +50,7 @@ function Inscription() {
                 nom: nom,
                 email: email,
                 motDePasse: motDePasse,
+                coins: 200,
               });
               alert("Inscription réussie");
             }
