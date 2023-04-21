@@ -13,6 +13,7 @@ function ForgetPassword() {
 
   return (
     <div className="container">
+      <p>{name}</p>
       <div className="card">
         <h2>Mot de passe oublié</h2>
         {!isSubmitted ? (
@@ -28,7 +29,7 @@ function ForgetPassword() {
                 onChange={(event) => setEmail(event.target.value)}
               />
             </div>
-            <p>{name}</p>
+
             <button
               type="submit"
               className="btn"
