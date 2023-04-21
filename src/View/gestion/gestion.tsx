@@ -28,26 +28,43 @@ function ListWithButton() {
     const id = localStorage.getItem("id");
     const proprietaire = nom;
     const handleAddItem = () => {
-        let name;
-        if (nom) {
-            name = gameInputValue;
-        } else {
-            name = "Error name ot found";
-        }
-        setList([...list, { name: name, players: "1/2", price: newPrice }]);
-        axios.post("http://localhost:3000/addgame", {
-            nom: nom,
-            gameName: name,
-            gamePrice: newPrice
+        axios.post("http://localhost:3000/gameNameCheck", {
+            gameName: gameInputValue,
         })
             .then((res) => {
-                console.log(res.data);
+                console.log(res.data)
+                if(res.data == null){
+                    let name;
+                    if (nom) {
+                        name = gameInputValue;
+                    } else {
+                        name = "Error name ot found";
+                    }
+                    setList([...list, { name: name, players: "1/2", price: newPrice }]);
+                    axios.post("http://localhost:3000/addgame", {
+                        nom: nom,
+                        gameName: name,
+                        gamePrice: newPrice
+                    })
+                        .then((res) => {
+                            console.log(res.data);
+                        })
+                        .catch((err) => {
+                            console.log(err);
+                        });
+                        redirectToChessGameBoard(gameInputValue);
+                }
+                else{
+                    alert("Nom de partie déjà existant")
+                }
             })
             .catch((err) => {
-                console.log(err);
+                
             });
+       
 
     };
+
 
     useEffect(() => {
         axios
@@ -239,7 +256,7 @@ function ListWithButton() {
                         value={newPrice}
                         onChange={(e) => setNewPrice(e.target.value)}
                     />
-                    <button className="create-game-button" onClick={() => { handleAddItem(); redirectToChessGameBoard(gameInputValue); }}>
+                    <button className="create-game-button" onClick={() => { handleAddItem(); }}>
                         Ajouter une partie
                     </button>
                     <select className="select" onChange={handlePriceFilter}>
