@@ -48,6 +48,7 @@ function ListWithButton() {
               nom: nom,
               gameName: name,
               gamePrice: newPrice,
+              price: parseInt(coins!) - parseInt(newPrice),
             })
             .then((res) => {
               console.log(res.data);
