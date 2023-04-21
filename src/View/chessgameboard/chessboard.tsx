@@ -1,13 +1,37 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Chessboard from "chessboardjsx";
 import "./chessboard.css"; // Importez le fichier CSS
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 
-const ChessGameBoard: React.FC = () => {
-  const [pseudo1, setPseudo1] = React.useState("");
-  const [pseudo2, setPseudo2] = React.useState("");
-  const [refund, setRefund] = React.useState("");
+function ChessGameBoard() {
+  const [coins, setCoins] = useState(0)
+  const [pseudo1, setPseudo1] = useState("");
+  const [pseudo2, setPseudo2] = useState("");
+  const [pricebase, setPricebase] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+        axios
+            .get("http://localhost:3000/getCoins", {
+                params: {
+                    nom: pseudo1,
+                },
+            })
+            .then((res) => {
+                if (res.status === 200) {
+                  setCoins(res.data)
+                  
+                    
+                  
+                }
+            })
+            .catch((err) => {
+                //console.log(err);
+                window.location.href = "http://localhost:3001/gestion";
+            });
+    }, 1000);
+    return () => clearInterval(interval);
+}, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -22,9 +46,14 @@ const ChessGameBoard: React.FC = () => {
             //console.log(res.data);
             setPseudo1(res.data.owner);
             setPseudo2(res.data.players[1]);
-
-            setRefund(res.data.price);
-            console.log(refund);
+            setPricebase(res.data.price);
+            console.log(coins )
+            console.log(res.data.price)
+            console.log(coins + res.data.price)
+          
+            
+            
+          
           }
         })
         .catch((err) => {
@@ -58,12 +87,14 @@ const ChessGameBoard: React.FC = () => {
 
           <button
             onClick={() => {
-              if (pseudo2 === null) {
+              if (pseudo2 !== null) {
+                
+                
                 axios
                   .post("http://localhost:3000/refundgame", {
                     gameName: localStorage.getItem("gameName"),
                     nom: pseudo1,
-                    price: parseInt(refund),
+                    price: coins + pricebase,
                   })
                   .then((res) => {
                     if (res.status === 200) {
@@ -80,7 +111,7 @@ const ChessGameBoard: React.FC = () => {
                 localStorage.setItem(
                   "coins",
                   (
-                    parseInt(localStorage.getItem("coins")!) + parseInt(refund)
+                    parseInt(localStorage.getItem("coins")!) + pricebase
                   ).toString()
                 );
               } else {
