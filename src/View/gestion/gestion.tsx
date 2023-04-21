@@ -7,8 +7,8 @@ import axios from "axios";
 function ListWithButton() {
     const navigate = useNavigate();
 
-    const redirectToChessGameBoard = (name:string) => {
-        localStorage.setItem("gameName",name);
+    const redirectToChessGameBoard = (name: string) => {
+        localStorage.setItem("gameName", name);
         navigate("/chessboard");
     };
 
@@ -70,7 +70,7 @@ function ListWithButton() {
     useEffect(() => {
         axios
             .get("http://localhost:3000/game", {
-                
+
             })
             .then((res) => {
                 if (res.status === 200) {
@@ -239,7 +239,7 @@ function ListWithButton() {
                         value={newPrice}
                         onChange={(e) => setNewPrice(e.target.value)}
                     />
-                    <button className="create-game-button" onClick={()=>{handleAddItem(); redirectToChessGameBoard(gameInputValue);}}>
+                    <button className="create-game-button" onClick={() => { handleAddItem(); redirectToChessGameBoard(gameInputValue); }}>
                         Ajouter une partie
                     </button>
                     <select className="select" onChange={handlePriceFilter}>
@@ -268,7 +268,7 @@ function ListWithButton() {
                             </div>
                             <button
                                 className="join-button"
-                                onClick={()=>redirectToChessGameBoard(item.gameName)}
+                                onClick={() => redirectToChessGameBoard(item.gameName)}
                             >
                                 Rejoindre
                             </button>
