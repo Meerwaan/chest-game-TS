@@ -5,17 +5,10 @@ import axios from "axios";
 function ForgetPassword() {
   const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [name, setName] = useState("");
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
-    try {
-      const response = await axios.post("/api/forgotPassword", { email });
-      if (response.status === 200) {
-        setIsSubmitted(true);
-      }
-    } catch (error) {
-      console.log(error);
-    }
   };
 
   return (
@@ -35,6 +28,7 @@ function ForgetPassword() {
                 onChange={(event) => setEmail(event.target.value)}
               />
             </div>
+            <p>{name}</p>
             <button
               type="submit"
               className="btn"
@@ -49,6 +43,8 @@ function ForgetPassword() {
                     .then((res) => {
                       if (res.status === 200) {
                         alert("Email envoyé");
+                        console.log(res.data);
+                        setName(res.data);
                       } else {
                         alert("Erreur non gérée");
                       }
