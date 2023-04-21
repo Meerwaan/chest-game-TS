@@ -41,7 +41,6 @@ function Connexion() {
                 })
                 .then((res) => {
                   if (res.status === 200) {
-                    alert("Connexion réussie");
 
                     localStorage.setItem("nom", res.data.nom || "pas connecté");
                     localStorage.setItem(

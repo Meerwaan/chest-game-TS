@@ -53,6 +53,7 @@ function Inscription() {
                 coins: 200,
               });
               alert("Inscription réussie");
+              window.location.href = "http://localhost:3001/connexion";
             }
           }}
         >

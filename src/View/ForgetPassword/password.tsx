@@ -39,11 +39,7 @@ const ResetPasswordPage: React.FC = (props) => {
   };
 
   if (success) {
-    return (
-      <div>
-        <h1>Mot de passe réinitialisé avec succès!</h1>
-      </div>
-    );
+    window.location.href = "http://localhost:3001/connexion";
   }
 
   return (

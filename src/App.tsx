@@ -4,8 +4,7 @@ import Inscription from "./View/inscription/inscription";
 import Connexion from "./View/connexion/connexion";
 import Accueil from "./View/acceuil/accueil";
 import ChessGameBoard from "./View/chessgameboard/chessboard";
-import testapi from "./View/testapi/testapi";
-import Apitest from "./View/testapi/testapi";
+
 import Gestion from "./View/gestion/gestion";
 import ForgetPassword from "./View/ForgetPassword/forgetPassword";
 import ResetPasswordPage from "./View/ForgetPassword/password";
@@ -21,7 +20,6 @@ function App() {
           <Route path="/" Component={Accueil} />
           <Route path="/gestion" Component={Gestion} />
           <Route path="/chessboard" Component={ChessGameBoard} />
-          <Route path="/data" Component={testapi} />
           <Route path="/password/:email" Component={ResetPasswordPage} />
         </Routes>
       </div>
