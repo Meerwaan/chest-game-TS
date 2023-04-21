@@ -34,7 +34,7 @@ function ListWithButton() {
         gameName: gameInputValue,
       })
       .then((res) => {
-        console.log(res.data);
+        //console.log(res.data);
         if (res.data == null) {
           let name;
           if (nom) {
@@ -51,10 +51,10 @@ function ListWithButton() {
               price: parseInt(coins!) - parseInt(newPrice),
             })
             .then((res) => {
-              console.log(res.data);
+              //console.log(res.data);
             })
             .catch((err) => {
-              console.log(err);
+              //console.log(err);
             });
           redirectToChessGameBoard(gameInputValue);
         } else {
@@ -78,7 +78,7 @@ function ListWithButton() {
       })
       .catch((err) => {
         alert("Erreur lors de la flop");
-        console.log(err);
+        //console.log(err);
       });
   }, []);
 
@@ -87,13 +87,13 @@ function ListWithButton() {
       .get("http://localhost:3000/game", {})
       .then((res) => {
         if (res.status === 200) {
-          console.log(res.data);
+          //console.log(res.data);
           setList3(res.data);
         }
       })
       .catch((err) => {
         alert("Erreur lors de la flop");
-        console.log(err);
+        //console.log(err);
       });
   }, []);
 
@@ -114,7 +114,7 @@ function ListWithButton() {
       })
       .catch((err) => {
         alert("Erreur lors de la flop");
-        console.log(err);
+        //console.log(err);
       });
   };
 
@@ -128,10 +128,10 @@ function ListWithButton() {
       })
 
       .then((response) => {
-        console.log("Ami supprimé.");
+        //console.log("Ami supprimé.");
       })
       .catch((error) => {
-        console.log("Erreur lors de la suppression de l'ami.");
+        //console.log("Erreur lors de la suppression de l'ami.");
       });
   };
 
@@ -173,10 +173,10 @@ function ListWithButton() {
           price: parseInt(coins!) - priceNumber,
         })
         .then((res) => {
-          console.log(res.data);
+          //console.log(res.data);
         })
         .catch((err) => {
-          console.log(err);
+          //console.log(err);
         });
       redirectToChessGameBoard(gameName);
     } else {

@@ -57,7 +57,7 @@ function Connexion() {
                 })
                 .catch((err) => {
                   alert("Erreur lors de la flop");
-                  console.log(err);
+                  //console.log(err);
                 });
             }
           }}

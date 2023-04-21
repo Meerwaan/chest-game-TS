@@ -18,7 +18,7 @@ export function addUser(nom: string, email: string, motDePasse: string) {
     email,
     motDePasse
   }).then(response => {
-    console.log(response.data); // afficher la réponse du serveur
+    //console.log(response.data); // afficher la réponse du serveur
   }).catch(error => {
     console.error(error); // afficher l'erreur en cas d'échec de la requête
   });

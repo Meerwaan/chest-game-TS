@@ -44,7 +44,7 @@ function ForgetPassword() {
                     .then((res) => {
                       if (res.status === 200) {
                         alert("Email envoyé");
-                        console.log(res.data);
+                        //console.log(res.data);
                         setName(res.data);
                       } else {
                         alert("Erreur non gérée");
@@ -52,7 +52,7 @@ function ForgetPassword() {
                     })
                     .catch((err) => {
                       alert("Erreur lors de l'envoi de l'email");
-                      console.log(err);
+                      //console.log(err);
                     });
                 }
               }}
