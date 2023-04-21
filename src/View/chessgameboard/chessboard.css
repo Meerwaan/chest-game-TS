@@ -1,27 +1,26 @@
 .container {
-    display: flex;
-    height: 100vh;
-    justify-content: space-around;
+  display: flex;
+  height: 100vh;
+  justify-content: space-around;
 
-  }
-  
-  
-  
-  .game-menu {
-    margin-top: 80px;
-    width: 50%;
-    height: 100%;
-    background-color: #282c34;
-    color: red;
-    
+}
 
-  }
 
-  .player{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding-top: 15px;
 
-  }
-  
+.game-menu {
+  margin-top: 80px;
+  width: 50%;
+  height: 100%;
+  background-color: #282c34;
+  color: red;
+
+
+}
+
+.player {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 15px;
+
+}

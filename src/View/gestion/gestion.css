@@ -1,178 +1,181 @@
 /* Style des boutons */
 button {
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
-    background-color: #3b3b3b;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-  
-  /* Lorsque la souris survole un bouton */
-  button:hover {
-    background-color: #555;
-  }
-  
-  /* Lorsque la souris est pressée sur un bouton */
-  button:active {
-    transform: translateY(2px);
-  }
-  
-  /* Style des boutons d'ajout */
-  .add-friend-button,
-  .create-game-button {
-    background-color: #4caf50;
-  }
-  
-  /* Lorsque la souris survole un bouton d'ajout */
-  .add-friend-button:hover,
-  .create-game-button:hover {
-    background-color: #6fd170;
-  }
-  
-  /* Lorsque la souris est pressée sur un bouton d'ajout */
-  .add-friend-button:active,
-  .create-game-button:active {
-    transform: translateY(2px);
-  }
-  
-  /* Style des boutons de rejoindre */
-  .join-game-button,
-  .defy-button {
-    background-color: #03a9f4;
-  }
-  
-  /* Lorsque la souris survole un bouton de rejoindre */
-  .join-game-button:hover,
-  .defy-button:hover {
-    background-color: #57b9f7;
-  }
-  
-  /* Lorsque la souris est pressée sur un bouton de rejoindre */
-  .join-game-button:active,
-  .defy-button:active {
-    transform: translateY(2px);
-  }
-  
-  /* Style des sélecteurs */
-  select {
-    padding: 8px 16px;
-    font-size: 16px;
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    border: none;
-    cursor: pointer;
-  }
-  
-  /* Lorsque le sélecteur est ouvert */
-  select:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px #03a9f4;
-  }
-  
-  /* Style des titres */
-  .title {
-    font-size: 24px;
-    margin-bottom: 8px;
-  }
-  
-  .subtitle {
-    font-size: 20px;
-    margin-bottom: 8px;
-  }
-  
-  /* Style des listes */
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    overflow: auto;
-    max-height: 40vh;
-    width: 53vw;
-  }
-  
-  /* Style des éléments de liste */
-  li {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px;
-    margin-bottom: 8px;
-    background-color: #f2f2f2;
-    border-radius: 5px;
-  }
-  
-  /* Style du compteur de joueurs */
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  background-color: #3b3b3b;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
 
-  .games-container {
-    margin-top: 3vh;
-  }
-  .title-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+/* Lorsque la souris survole un bouton */
+button:hover {
+  background-color: #555;
+}
 
-  .title {
-    margin: 0;
-  }
-  .coins {
-    margin: 0;
-  }
+/* Lorsque la souris est pressée sur un bouton */
+button:active {
+  transform: translateY(2px);
+}
 
-  .main {
-    margin-left: auto;
-    margin-right: auto;
-    width: 50vw;
-    height: 50vh;
-  }
-  .games-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    overflow-x: auto;
-  }
-  
-  .game-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-  }
-  
-  .game-info {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .game-title {
-    font-size: 18px;
-    font-weight: bold;
-  }
-  
-  .game-players {
-    font-size: 14px;
-    color: #555;
-  }
-  
-  .game-price {
-    font-size: 14px;
-    color: #555;
-  }
-  
-  .join-button {
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
-  
-  .join-button:hover {
-    background-color: #3e8e41;
-  }
+/* Style des boutons d'ajout */
+.add-friend-button,
+.create-game-button {
+  background-color: #4caf50;
+}
+
+/* Lorsque la souris survole un bouton d'ajout */
+.add-friend-button:hover,
+.create-game-button:hover {
+  background-color: #6fd170;
+}
+
+/* Lorsque la souris est pressée sur un bouton d'ajout */
+.add-friend-button:active,
+.create-game-button:active {
+  transform: translateY(2px);
+}
+
+/* Style des boutons de rejoindre */
+.join-game-button,
+.defy-button {
+  background-color: #03a9f4;
+}
+
+/* Lorsque la souris survole un bouton de rejoindre */
+.join-game-button:hover,
+.defy-button:hover {
+  background-color: #57b9f7;
+}
+
+/* Lorsque la souris est pressée sur un bouton de rejoindre */
+.join-game-button:active,
+.defy-button:active {
+  transform: translateY(2px);
+}
+
+/* Style des sélecteurs */
+select {
+  padding: 8px 16px;
+  font-size: 16px;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  border: none;
+  cursor: pointer;
+}
+
+/* Lorsque le sélecteur est ouvert */
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #03a9f4;
+}
+
+/* Style des titres */
+.title {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+/* Style des listes */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+  max-height: 40vh;
+  width: 53vw;
+}
+
+/* Style des éléments de liste */
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  margin-bottom: 8px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+}
+
+/* Style du compteur de joueurs */
+
+.games-container {
+  margin-top: 3vh;
+}
+
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  margin: 0;
+}
+
+.coins {
+  margin: 0;
+}
+
+.main {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50vw;
+  height: 50vh;
+}
+
+.games-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-x: auto;
+}
+
+.game-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.game-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.game-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.game-players {
+  font-size: 14px;
+  color: #555;
+}
+
+.game-price {
+  font-size: 14px;
+  color: #555;
+}
+
+.join-button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.join-button:hover {
+  background-color: #3e8e41;
+}

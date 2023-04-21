@@ -5,7 +5,7 @@ import "./gestion.css";
 import axios from "axios";
 
 function ListWithButton() {
-  
+
     const [list2, setList2] = useState([]);
     const [inputValue, setInputValue] = useState("");
     const [selectedPrice, setSelectedPrice] = useState("");
@@ -48,7 +48,7 @@ function ListWithButton() {
         return () => clearInterval(interval);
     }, []);
 
-    
+
 
     useEffect(() => {
         const interval = setInterval(() => {
