@@ -161,21 +161,25 @@ function ListWithButton() {
         }
     };
 
-    const handleJoinGame = (gameName: string) => {
-        axios
-            .post("http://localhost:3000/joingame", {
-                nom: nom,
-                gameName: gameName,
-            })
-            .then((res) => {
-                console.log(res.data);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-        redirectToChessGameBoard(gameName);
-    };
+    const handleJoinGame = (gameName: string, players: any[]) => {
 
+        if (players[0] != nom) {
+            axios
+                .post("http://localhost:3000/joingame", {
+                    nom: nom,
+                    gameName: gameName,
+                })
+                .then((res) => {
+                    console.log(res.data);
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+            redirectToChessGameBoard(gameName);
+        }else{
+            alert("Vous ne pouvez pas rejoindre votre propore partie")
+        }
+    }
     const filteredList =
         selectedPrice === "Gratuit"
             ? list3.filter((item) => item.price === "0")
@@ -288,7 +292,7 @@ function ListWithButton() {
                                 </div>
                                 <button
                                     className="join-button"
-                                    onClick={() => handleJoinGame(item.gameName)}
+                                    onClick={() => handleJoinGame(item.gameName, item.players)}
                                 >
                                     Rejoindre
                                 </button>
