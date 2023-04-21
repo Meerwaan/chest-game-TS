@@ -341,7 +341,9 @@ function ListWithButton() {
                                         Rejoindre
                                     </button>
                                 </li>
-                            ))}
+                            )
+                         )
+                    }
                 </ul>
             </div>
         </div>
